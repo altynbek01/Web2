@@ -1,0 +1,49 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + ' details'" href="{{product.link}}">
+      {{ product.name }}<br />
+      <img src="{{product.image}}" height="150px" /><br />
+    </a>
+    <span
+      class="fa fa-star"
+      [class.rate]="isRated"
+      (click)="changeRating()"
+    ></span>
+    <span
+      class="fa fa-star"
+      [class.rate]="isRated1"
+      (click)="changeRating1()"
+    ></span>
+    <span
+      class="fa fa-star"
+      [class.rate]="isRated2"
+      (click)="changeRating2()"
+    ></span>
+    <span
+      class="fa fa-star"
+      [class.rate]="isRated3"
+      (click)="changeRating3()"
+    ></span>
+    <span
+      class="fa fa-star"
+      [class.rate]="isRated4"
+      (click)="changeRating4()"
+    ></span>
+  </h3>
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+  <button (click)="share()">
+    Share
+  </button>
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
